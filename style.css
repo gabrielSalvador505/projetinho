@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(252, 252, 252);
+    font-family: monospace;
+    font-size: 17px;
+}
+
+*::selection {
+    background-color: rgba(47, 86, 192, 0.5);
+}
+
+body {
+    background-color: rgb(164, 181, 228);
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+}
+
+#title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 5%;
+    font-size: 2.4rem;
+    font-family: Phudu;
+    background-color: transparent;
+}
+#cards-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 10rem;
+    left: 50%;
+    gap: 5rem;
+    justify-items: center;
+    align-items: center;
+    transform: translate(-50%);
+    background-color: transparent;
+}
+
+.card {
+    position: relative;
+    height: 17rem;
+    width: 13rem;
+    margin: 5px;
+    perspective: 1000px;
+    background-color: transparent;
+}
+  
+.card .flip {
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+
+}
+  
+.activate .flip{
+    animation: rotate 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    } to {
+        transform: rotateY(-180deg);
+    }
+}
+  
+.front-card, .back-card{
+    height: 17rem;
+    width: 13rem;
+    position: absolute;
+    backface-visibility: hidden;
+
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+  
+.front-card{
+    transform: rotateY(180deg);
+
+    font-family: Sono;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.back-card {
+    background-color: rgba(250, 249, 249, 0.486);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-card img {
+    background-color: transparent;
+    height: 8rem;
+}
+
+.front-card p {
+    margin: 1.6rem;
+}
+
+#main-container {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+}
+
+#response {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0.5rem;
+    height: 1.6rem;
+    width: 24rem;
+    padding: 0.8rem;
+    font-size: 1.6rem;
+    margin: 0.8rem;
+    text-align: center;
+    font-family: monospace;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.animation {
+    animation: shake 0.5s;
+}
+
+#response:focus {
+    outline: none;
+}
+
+/*WRONG ANSWHER*/
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+/*tips*/
+
+#modal-caller {
+    margin-top: 2rem;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#tips-container {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.tips {
+    position: absolute;
+    visibility: hidden;
+    background-color: transparent;
+}
+
+#small {
+    font-size: 0.6rem;
+    background-color: transparent;
+}
